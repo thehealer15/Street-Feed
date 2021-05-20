@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1059788501996",
+    "firebase_url": "https://street-feed-5ed38-default-rtdb.firebaseio.com",
+    "project_id": "street-feed-5ed38",
+    "storage_bucket": "street-feed-5ed38.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1059788501996:android:9e15fea65f1e3665e2c6c9",
+        "android_client_info": {
+          "package_name": "com.example.streetfeed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1059788501996-38ctsmhe9i83o314ceblgn0spiunfh9g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBh9sOvvoJhb8SCWOs9mSeIhHKtYDtoOaY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1059788501996-38ctsmhe9i83o314ceblgn0spiunfh9g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
