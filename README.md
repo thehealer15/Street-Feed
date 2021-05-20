@@ -20,7 +20,7 @@ This is Acedmic group project completed in timeline April 2021 to June 2021
 - Can see Feed of vendors in locality
 - Can locate and call vendor shop
     
-# Group Members: 
+## Group Members: 
 ```
 Akshay Pawar  
 Atharva Kulkarni
