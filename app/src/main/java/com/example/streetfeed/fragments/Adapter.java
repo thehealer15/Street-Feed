@@ -51,7 +51,7 @@ public class Adapter extends FirebaseRecyclerAdapter<Name_Address_Shop,Adapter.v
         return new viewHolder(view);
     }
 
-    public static class viewHolder extends RecyclerView.ViewHolder
+    public class viewHolder extends RecyclerView.ViewHolder
     {
         ImageView imageview;
         TextView textview;
