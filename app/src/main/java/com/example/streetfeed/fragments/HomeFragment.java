@@ -3,26 +3,51 @@ package com.example.streetfeed.fragments;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+<<<<<<< HEAD
+=======
+import androidx.annotation.Nullable;
+>>>>>>> b4077eae94aad323cfa32c31addccde1e00e876a
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+<<<<<<< HEAD
+=======
+import android.text.Editable;
+import android.text.Layout;
+import android.text.TextWatcher;
+>>>>>>> b4077eae94aad323cfa32c31addccde1e00e876a
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+<<<<<<< HEAD
+=======
+import android.widget.EditText;
+>>>>>>> b4077eae94aad323cfa32c31addccde1e00e876a
 import android.widget.LinearLayout;
 import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.streetfeed.R;
+<<<<<<< HEAD
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
+=======
+import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+>>>>>>> b4077eae94aad323cfa32c31addccde1e00e876a
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
@@ -45,6 +70,11 @@ public class HomeFragment extends Fragment {
 
     RecyclerView recyclerView;
     Adapter adapter;
+<<<<<<< HEAD
+=======
+    EditText search_bar1;
+    DatabaseReference databaseReference=FirebaseDatabase.getInstance().getReference();
+>>>>>>> b4077eae94aad323cfa32c31addccde1e00e876a
     //FirebaseRecyclerOptions<Name_Address_Shop> options1;
 
 
@@ -89,6 +119,45 @@ public class HomeFragment extends Fragment {
         View view=inflater.inflate(R.layout.fragment_home, container, false);
         recyclerView=view.findViewById(R.id.recyview);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+<<<<<<< HEAD
+=======
+        search_bar1=view.findViewById(R.id.search_bar);
+
+        search_bar1.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+//                if(!s.toString().isEmpty())
+//                {
+//                    processSearch(s.toString());
+//                }
+//                else
+//                {
+//                    processSearch("");
+//                }
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s)
+            {
+                    if(!s.toString().isEmpty())
+                    {
+                        processSearch(s.toString());
+                    }
+                    else
+                    {
+                        processSearch("");
+                    }
+
+
+            }
+        });
+>>>>>>> b4077eae94aad323cfa32c31addccde1e00e876a
 
 
        FirebaseRecyclerOptions<Name_Address_Shop> options =
@@ -103,6 +172,7 @@ public class HomeFragment extends Fragment {
         //setHasOptionsMenu(true);
         return view;
     }
+<<<<<<< HEAD
     @Override
     public void onStart() {
         super.onStart();
@@ -152,5 +222,46 @@ public class HomeFragment extends Fragment {
         adapter.startListening();
         recyclerView.setAdapter(adapter);
     }*/
+=======
+
+
+    private void processSearch(String s)
+    {
+        FirebaseRecyclerOptions<Name_Address_Shop> options =
+                new FirebaseRecyclerOptions.Builder<Name_Address_Shop>()
+                        .setQuery(FirebaseDatabase.getInstance().getReference().child("Shops").orderByChild("name").startAt(s).endAt(s + "\uf8ff"), Name_Address_Shop.class)
+                        .build();
+
+        FirebaseRecyclerAdapter <Name_Address_Shop,Adapter.viewHolder> firebaseRecyclerAdapter=new FirebaseRecyclerAdapter<Name_Address_Shop, Adapter.viewHolder>(options) {
+            @Override
+            protected void onBindViewHolder(@NonNull Adapter.viewHolder holder, int position, @NonNull  Name_Address_Shop model) {
+                holder.textview.setText(model.getName());
+                holder.address.setText(model.getAddress());
+                Glide.with(holder.imageview.getContext()).load(model.getPurl()).into(holder.imageview);
+
+            }
+
+            @NonNull
+            @Override
+            public Adapter.viewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
+                View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_view_single_sample_row,parent,false);
+                return new Adapter.viewHolder(view);
+            }
+        };
+        firebaseRecyclerAdapter.startListening();
+        recyclerView.setAdapter(firebaseRecyclerAdapter);
+
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
+>>>>>>> b4077eae94aad323cfa32c31addccde1e00e876a
 
 }
