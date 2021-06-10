@@ -89,7 +89,15 @@ public class Adapter extends FirebaseRecyclerAdapter<Shop,Adapter.viewHolder>
         return new viewHolder(view);
     }
 
+<<<<<<< HEAD
     public static class viewHolder extends RecyclerView.ViewHolder
+=======
+<<<<<<< HEAD
+    public class viewHolder extends RecyclerView.ViewHolder
+=======
+    public static class viewHolder extends RecyclerView.ViewHolder
+>>>>>>> b4077eae94aad323cfa32c31addccde1e00e876a
+>>>>>>> 5b7e350030264a3ffde998b18769c86ee40ed075
     {
         ImageView imageview;
 //        TextView textview;
