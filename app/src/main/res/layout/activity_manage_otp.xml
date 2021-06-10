@@ -1,41 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".authentication.ManageOTPvendor">
 
+
     <EditText
         android:id="@+id/text_otp"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginStart="101dp"
-        android:layout_marginLeft="101dp"
-        android:layout_marginTop="272dp"
-        android:layout_marginEnd="101dp"
-        android:layout_marginRight="101dp"
-        android:layout_marginBottom="43dp"
-        android:background="@drawable/edit_text_custom"
+
+        android:layout_width="224dp"
+        android:layout_height="45dp"
+
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/backlogin"
         android:ems="10"
+        android:fontFamily="@font/cabin_bold"
+        android:gravity="center_horizontal"
         android:hint="Enter OTP"
         android:inputType="number"
         android:maxLength="6"
-        android:paddingLeft="8dp" />
+        app:layout_constraintBottom_toTopOf="@+id/verify_OTP"
+        app:layout_constraintEnd_toEndOf="@+id/verify_OTP"
+        app:layout_constraintHorizontal_bias="0.44"
+        app:layout_constraintStart_toStartOf="@+id/verify_OTP"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/verify_OTP"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginLeft="140dp"
-        android:layout_marginTop="400dp"
-        android:layout_marginEnd="120dp"
-        android:layout_marginRight="120dp"
-        android:fontFamily="@font/cabin_bold"
-        android:padding="15dp"
-        android:text="Verify Otp"
-        android:textStyle="bold"
-        app:backgroundTint="#705858"
-        />
-</RelativeLayout>
+        android:layout_width="249dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="308dp"
+        android:background="@drawable/round"
+        android:fontFamily="@font/alegreya_sans_medium"
+        android:gravity="center_horizontal"
+        android:text="Verify"
+        android:textSize="20sp"
+        app:backgroundTint="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.438"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="199dp"
+        android:layout_height="176dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.603"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.135"
+        app:srcCompat="@drawable/verifyff" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+
+        android:layout_width="415dp"
+        android:layout_height="262dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:srcCompat="@drawable/shopsf"
+        tools:ignore="MissingConstraints" />
+</androidx.constraintlayout.widget.ConstraintLayout>

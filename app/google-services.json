@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "1059788501996-03u4fdgl8u7238m2upql8fj89ucefa3h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.streetfeed",
+            "certificate_hash": "0967d60b82f12cc6ab3fa41e9e6930b8dd10ea49"
+          }
+        },
+        {
           "client_id": "1059788501996-38ctsmhe9i83o314ceblgn0spiunfh9g.apps.googleusercontent.com",
           "client_type": 3
         }

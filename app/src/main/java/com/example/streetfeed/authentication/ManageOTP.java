@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.streetfeed.Customer_bottom_nav;
 import com.example.streetfeed.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -38,7 +39,6 @@ public class ManageOTP extends AppCompatActivity {
         otp=findViewById(R.id.text_otp);
         verifyOTP=findViewById(R.id.verify_OTP);
         mAuth=FirebaseAuth.getInstance();
-        //otpid=getIntent().getStringExtra("backendOTP");
         mobile_no=getIntent().getStringExtra("mobile");
 
         initiateOTP();
@@ -98,14 +98,13 @@ public class ManageOTP extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             Toast.makeText(ManageOTP.this, "SignIn Successful", Toast.LENGTH_SHORT).show();
-                            Intent intent=new Intent(getApplicationContext(), SampleDashboard.class);
+                            Intent intent=new Intent(getApplicationContext(), Customer_bottom_nav.class);
                             startActivity(intent);
                             finish();
                         }
                         else
                         {
                             Toast.makeText(ManageOTP.this, "SignIn code error!", Toast.LENGTH_SHORT).show();
-
                         }
                     }
                 });

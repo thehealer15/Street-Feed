@@ -1,51 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".authentication.UserLogIn">
 
     <Button
         android:id="@+id/otp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginLeft="150dp"
-        android:layout_marginTop="450dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginRight="80dp"
-        android:fontFamily="@font/cabin_bold"
-        android:padding="15dp"
-        android:text="Get otp"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:backgroundTint="#705858" />
+        android:layout_width="249dp"
+        android:layout_height="45dp"
+        android:layout_marginBottom="292dp"
+        android:background="@drawable/round"
+        android:fontFamily="@font/alegreya_sans_medium"
+        android:text="Get OTP"
+        android:textSize="20sp"
+        app:backgroundTint="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/mobile_no"
-        android:layout_width="wrap_content"
+        android:layout_width="224dp"
         android:layout_height="50dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginStart="170dp"
-        android:layout_marginLeft="170dp"
-        android:layout_marginTop="309dp"
-        android:layout_marginEnd="15dp"
-        android:layout_marginRight="15dp"
-        android:background="@drawable/edit_text_custom"
+
+        android:layout_marginTop="60dp"
+        android:background="@drawable/backlogin"
         android:ems="10"
-        android:hint="Mobile no......"
+        android:fontFamily="@font/alegreya_sans_medium"
+        android:hint="Enter Mobile Number"
         android:inputType="number"
-        android:paddingLeft="8dp" />
+        android:paddingLeft="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toEndOf="@+id/cpp"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
 
     <com.hbb20.CountryCodePicker
         android:id="@+id/cpp"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:layout_alignParentLeft="true"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
-        android:layout_marginTop="309dp"
-        android:layout_marginBottom="372dp"
-        android:background="@drawable/edit_text_custom" />
-</RelativeLayout>
+        android:layout_alignParentLeft="false"
+        android:layout_alignParentBottom="false"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="60dp"
+        android:layout_toStartOf="@+id/mobile_no"
+        android:layout_toLeftOf="@+id/mobile_no"
+        android:background="@drawable/backlogin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="292dp"
+        android:layout_height="207dp"
+        android:layout_marginTop="44dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/otpmbf" />
+
+    <ImageView
+        android:id="@+id/imageView10"
+
+        android:layout_width="415dp"
+        android:layout_height="262dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintLeft_toRightOf="parent"
+        app:srcCompat="@drawable/shopsf"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

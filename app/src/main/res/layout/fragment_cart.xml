@@ -1,15 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    tools:context=".fragments.CartFragment">
-    <fragment
+    tools:context=".fragments.CartFragment"
+    android:clickable="true">
+
+    <ImageView
+        android:id="@+id/imageView8"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/mapview"
-        android:name="com.google.android.gms.maps.SupportMapFragment"/>
+        android:layout_height="230dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.014"
+        tools:src="@tools:sample/avatars" />
 
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="406dp"
+        android:layout_height="91dp"
+        android:layout_marginTop="2dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView8"
+        app:layout_constraintVertical_bias="0.024">
 
-    </RelativeLayout>
+        <TextView
+            android:id="@+id/shopname"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#E8E8E8"
+            android:fontFamily="@font/acme"
+            android:gravity="center"
+            android:text="Shop Name"
+            android:textColor="#085aa2"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/rshopname"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:gravity="center"
+            android:textColor="#0C0C0C"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:layout_marginTop="2dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/oname"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#E8E8E8"
+            android:fontFamily="@font/acme"
+            android:gravity="center"
+            android:text="owner name"
+            android:textColor="#085aa2"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/ron"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:gravity="center|center_vertical"
+            android:textColor="#0C0C0C"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout5"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:layout_marginTop="2dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout4"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/mno"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#E8E8E8"
+            android:fontFamily="@font/acme"
+            android:gravity="center|center_horizontal"
+            android:text="Mobile Number"
+            android:textColor="#085aa2"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/rmno"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:gravity="center|center_horizontal"
+            android:textColor="#0C0C0C"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="91dp"
+        android:layout_marginTop="2dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:id="@+id/add"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="#E8E8E8"
+            android:fontFamily="@font/acme"
+            android:gravity="center|center_horizontal"
+            android:text="Shop Address"
+            android:textColor="#085aa2"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/radd"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:gravity="center|center_horizontal"
+            android:textColor="#0C0C0C"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="112dp"
+        android:layout_height="40dp"
+        android:background="@drawable/backlogin"
+        android:fontFamily="@font/alegreya_sans_medium"
+        android:text="Logout"
+        app:backgroundTint="@android:color/holo_red_dark"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.916"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout6"
+        app:layout_constraintVertical_bias="0.328" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

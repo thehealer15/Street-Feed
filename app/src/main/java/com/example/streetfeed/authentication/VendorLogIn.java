@@ -38,70 +38,24 @@ public class VendorLogIn extends AppCompatActivity {
         mobile=findViewById(R.id.mobile_no);
         cpp=findViewById(R.id.cpp);
         getOTP=findViewById(R.id.otp);
-        mAuth=FirebaseAuth.getInstance();//mAuth.getFirebaseAuthSettings().forceRecaptchaFlowForTesting(true);
+        mAuth=FirebaseAuth.getInstance();
 
         getOTP.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String mobile_no=mobile.getText().toString();
-                mobile_no=cpp.getSelectedCountryCodeWithPlus()+mobile_no;
+                mobile_no=(cpp.getSelectedCountryCodeWithPlus()+mobile_no).trim();
+                if(mobile_no.length()!=13)
+                {
+                    Toast.makeText(VendorLogIn.this, "Please enter a valid mobile number", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
                 Intent otpIntent = new Intent(VendorLogIn.this, ManageOTPvendor.class);
                 otpIntent.putExtra("mobile",mobile_no);
-                startActivity(otpIntent);
-
-               /* PhoneAuthOptions options =
-                        PhoneAuthOptions.newBuilder(mAuth)
-                                .setPhoneNumber(mobile.getText().toString())       // Phone number to verify
-                                .setTimeout(60L, TimeUnit.SECONDS) // Timeout and unit
-                                .setActivity(VendorLogIn.this)                 // Activity (for callback binding)
-                                .setCallbacks(new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
-
-                                    @Override//When the Sim is not in your device
-                                    public void onCodeSent(@NonNull String s, @NonNull PhoneAuthProvider.ForceResendingToken forceResendingToken) {
-                                        new Handler().postDelayed(new Runnable() {
-                                            @Override
-                                            public void run() {
-                                                Intent otpIntent = new Intent(VendorLogIn.this , ManageOTPvendor.class);
-                                                otpIntent.putExtra("backendOTP" , s);
-                                                startActivity(otpIntent);
-                                            }
-                                        }, 10000);
-                                    }
-
-                                    @Override//When sim is in your device
-                                    public void onVerificationCompleted(@NonNull PhoneAuthCredential phoneAuthCredential) {
-                                        signInWithPhoneAuthCredential(phoneAuthCredential);
-                                    }
-
-                                    @Override//Failed
-                                    public void onVerificationFailed(@NonNull FirebaseException e)
-                                    {
-                                        Toast.makeText(VendorLogIn.this,e.getMessage(), Toast.LENGTH_SHORT).show();
-
-                                    }
-                                }) .build()  ;       // OnVerificationStateChangedCallbacks
-                PhoneAuthProvider.verifyPhoneNumber(options);*/
+                startActivity(otpIntent);}
             }
 
         });
     }
-    /*private void signInWithPhoneAuthCredential(PhoneAuthCredential credential) {
-        mAuth.signInWithCredential(credential)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(VendorLogIn.this, "SignIn Successful", Toast.LENGTH_SHORT).show();
-                            Intent intent=new Intent(getApplicationContext(), SampleDashboard.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK| Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                            startActivity(intent);
-                        }
-                        else
-                        {
-                            Toast.makeText(VendorLogIn.this, "SignIn code error!", Toast.LENGTH_SHORT).show();
-
-                        }
-                    }
-                });
-    }*/
 }

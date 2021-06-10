@@ -8,4 +8,9 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="offwhite">#99f5f3ce</color>
+    <color name="btn_clr">@color/red</color>
+    <color name="ripple_clr">#FFB4B4</color>
+    <color name="red">#FF0000</color>
+    <color name="guideclr">#271717</color>
+
 </resources>

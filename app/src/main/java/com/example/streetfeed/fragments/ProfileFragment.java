@@ -116,4 +116,8 @@ public class ProfileFragment extends Fragment {
 
             return view;
         }
+        public void doNothing(View view)
+        {
+            Toast.makeText(getActivity(), "Nothing to show", Toast.LENGTH_SHORT).show();
+        }
     }

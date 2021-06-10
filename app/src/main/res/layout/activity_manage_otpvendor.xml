@@ -1,41 +1,386 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-xmlns:app="http://schemas.android.com/apk/res-auto"
-xmlns:tools="http://schemas.android.com/tools"
-android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".authentication.ManageOTPvendor">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/otpVerActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".authentication.ManageOTPvendor">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/text_otp"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_marginStart="101dp"
-        android:layout_marginLeft="101dp"
-        android:layout_marginTop="272dp"
-        android:layout_marginEnd="101dp"
-        android:layout_marginRight="101dp"
-        android:layout_marginBottom="43dp"
-        android:background="@drawable/edit_text_custom"
-        android:ems="10"
-        android:hint="Enter OTP"
-        android:inputType="number"
-        android:maxLength="6"
-        android:paddingLeft="8dp" />
+        <LinearLayout
+            android:id="@+id/parentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
 
-<Button
-    android:id="@+id/verify_OTP"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:layout_marginStart="140dp"
-    android:layout_marginLeft="140dp"
-    android:layout_marginTop="400dp"
-    android:layout_marginEnd="120dp"
-    android:layout_marginRight="120dp"
-    android:fontFamily="@font/cabin_bold"
-    android:padding="15dp"
-    android:text="Verify Otp"
-    android:textStyle="bold"
-    app:backgroundTint="#705858"
-    />
-</RelativeLayout>
+
+            <Button
+                android:id="@+id/select_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="5dp"
+                android:layout_weight="2"
+                android:background="@drawable/round"
+                android:text="Select an image of shop"
+                app:backgroundTint="@android:color/holo_red_dark" />
+
+            <ImageView
+                android:id="@+id/user_image"
+                android:layout_width="227dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="10dp"
+                android:layout_weight="2" />
+
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="2" />
+
+            <Button
+                android:id="@+id/upload"
+                android:layout_width="118dp"
+                android:layout_height="36dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="2"
+                android:background="@drawable/round"
+                android:text="upload"
+                app:backgroundTint="@android:color/holo_red_dark" />
+
+            <LinearLayout
+                android:id="@+id/basic_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:layout_weight="2"
+                android:orientation="vertical">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/shopName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8sp"
+                    android:layout_weight="1"
+                    android:hint="Enter Shop Name"
+                    app:boxCornerRadiusBottomEnd="10sp"
+                    app:boxCornerRadiusBottomStart="10sp"
+                    app:boxCornerRadiusTopEnd="10sp"
+                    app:boxCornerRadiusTopStart="10sp"
+                    app:startIconDrawable="@drawable/ic_baseline_account_circle_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/ownerName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8sp"
+                    android:layout_weight="1"
+                    android:hint="Enter Owner Name"
+                    app:boxCornerRadiusBottomEnd="10sp"
+                    app:boxCornerRadiusBottomStart="10sp"
+                    app:boxCornerRadiusTopEnd="10sp"
+                    app:boxCornerRadiusTopStart="10sp"
+                    app:startIconDrawable="@drawable/ic_baseline_account_circle_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/shopAddress"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8sp"
+                    android:layout_weight="1"
+                    android:hint="@string/enter_shop_address"
+                    app:boxCornerRadiusBottomEnd="10sp"
+                    app:boxCornerRadiusBottomStart="10sp"
+                    app:boxCornerRadiusTopEnd="10sp"
+                    app:boxCornerRadiusTopStart="10sp"
+                    app:startIconDrawable="@drawable/ic_baseline_location_on_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <LinearLayout
+                    android:id="@+id/alocation_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8sp"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:weightSum="4">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/landmark"
+                        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="4"
+                        android:hint="@string/landmark"
+                        app:boxCornerRadiusBottomEnd="10sp"
+                        app:boxCornerRadiusBottomStart="10sp"
+                        app:boxCornerRadiusTopEnd="10sp"
+                        app:boxCornerRadiusTopStart="10sp"
+                        app:startIconDrawable="@drawable/ic_baseline_location_on_24">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <ImageView
+                        android:id="@+id/getlocation_ic"
+                        android:layout_width="50dp"
+                        android:layout_height="52dp"
+                        android:layout_marginStart="10sp"
+                        android:layout_marginLeft="10sp"
+                        android:layout_marginTop="5sp"
+                        android:layout_weight="1"
+                        android:onClick="getCoordinates"
+                        app:srcCompat="@drawable/ic_baseline_gps_fixed_24" />
+
+                </LinearLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/adhar_card_no"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8sp"
+                    android:layout_marginLeft="8sp"
+                    android:layout_marginEnd="8sp"
+                    android:layout_marginRight="8sp"
+                    android:layout_weight="1"
+                    android:hint="@string/enter_adhar_card_number"
+                    app:boxCornerRadiusBottomEnd="10sp"
+                    app:boxCornerRadiusBottomStart="10sp"
+                    app:boxCornerRadiusTopEnd="10sp"
+                    app:boxCornerRadiusTopStart="10sp"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="12"
+                    app:counterOverflowTextAppearance="@color/red"
+                    app:startIconDrawable="@drawable/ic_baseline_account_box_24">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/category"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8sp"
+                    android:layout_marginLeft="8sp"
+                    android:layout_marginEnd="8sp"
+                    android:layout_marginRight="8sp"
+                    android:layout_weight="1"
+                    android:hint="@string/category_of_shop"
+                    app:boxCornerRadiusBottomEnd="10sp"
+                    app:boxCornerRadiusBottomStart="10sp"
+                    app:boxCornerRadiusTopEnd="10sp"
+                    app:boxCornerRadiusTopStart="10sp"
+                    app:startIconDrawable="@drawable/ic_baseline_category_24">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/dropdown"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:inputType="none" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/shop_info_submit_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="30sp"
+                android:layout_weight="0.5"
+                android:background="@drawable/backlogin"
+                android:backgroundTint="@color/btn_clr"
+                android:hapticFeedbackEnabled="false"
+                android:text="Submit Shop Information"
+                app:backgroundTint="@android:color/holo_red_dark"
+                app:cornerRadius="0dp"
+                app:rippleColor="@color/ripple_clr" />
+
+            <LinearLayout
+                android:id="@+id/itemdetails_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/itemName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_weight="4"
+                    android:hint="Item Name">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/itemPrice"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="3sp"
+                    android:layout_weight="10"
+                    android:hint="Price"
+                    app:suffixText="Rs">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberSigned" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/add_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="250dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/round"
+                android:backgroundTint="@color/btn_clr"
+                android:onClick="add_item"
+                android:text="Add Item"
+                android:visibility="gone"
+                app:backgroundTint="@android:color/holo_red_dark" />
+
+            <LinearLayout
+                android:id="@+id/info_linear_layout"
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal"
+                android:padding="5sp"
+                android:visibility="gone">
+
+                <ListView
+                    android:id="@+id/itemNameListView"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2sp"
+                    android:layout_weight="1" />
+
+                <ListView
+                    android:id="@+id/itemPriceListView"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2sp"
+                    android:layout_weight="2" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/submit_shop"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_weight="1"
+                android:background="@drawable/backlogin"
+                android:onClick="submitFinal"
+                android:text="Submit Shop"
+                android:visibility="gone"
+                app:backgroundTint="@android:color/holo_red_dark" />
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:id="@+id/imageView4"
+            android:layout_width="312dp"
+            android:layout_height="184dp"
+            android:layout_marginStart="80dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="30dp"
+            android:layout_weight="2"
+            app:srcCompat="@drawable/verifyff" />
+
+        <EditText
+            android:id="@+id/text_otp"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_marginStart="101dp"
+            android:layout_marginLeft="101dp"
+            android:layout_marginTop="57dp"
+            android:layout_marginEnd="101dp"
+            android:layout_marginRight="101dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/backlogin"
+            android:ems="10"
+            android:fontFamily="@font/alegreya_sc_black"
+            android:hint="Enter OTP"
+            android:inputType="number"
+            android:maxLength="6"
+            android:paddingLeft="8dp" />
+
+        <Button
+            android:id="@+id/verify_OTP"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="120dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="120dp"
+            android:layout_marginRight="120dp"
+            android:background="@drawable/backlogin"
+            android:fontFamily="@font/alegreya_sans_medium"
+            android:text="Verify Otp"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:backgroundTint="@android:color/holo_red_dark" />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="415dp"
+            android:layout_height="325dp"
+            android:layout_marginTop="21dp"
+
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintLeft_toRightOf="parent"
+            app:srcCompat="@drawable/shopsf"
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+</ScrollView>

@@ -5,26 +5,29 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CALL_PHONE"/>
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:name="com.example.streetfeed.ResourceFailedErrorHandling"
         android:supportsRtl="true"
-        android:theme="@style/Theme.StreetFeed">
-        <activity android:name=".authentication.SampleDashboard"></activity>
+        android:theme="@style/AppTheme">
+
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyD0SSW3jEI-BKKjsKbF7SRo41hSUKqedS8" />
 
-        <activity android:name=".authentication.ManageOTPvendor" />
-        <activity android:name=".authentication.ManageOTP" />
-        <activity android:name=".authentication.VendorLogIn" />
-        <activity android:name=".authentication.UserLogIn" />
-        <activity android:name=".Customer_bottom_nav" />
-        <activity android:name=".MainActivity1" />
+        <activity android:name=".authentication.ManageOTPvendor" android:theme="@style/Theme.StreetFeed" />
+        <activity android:name=".authentication.ManageOTP" android:theme="@style/Theme.StreetFeed" />
+        <activity android:name=".authentication.VendorLogIn" android:theme="@style/Theme.StreetFeed"/>
+        <activity android:name=".authentication.UserLogIn" android:theme="@style/Theme.StreetFeed" />
+        <activity android:name=".Customer_bottom_nav" android:theme="@style/Theme.StreetFeed"/>
+
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
